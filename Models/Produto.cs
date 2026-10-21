@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace TechStoreMVC.Models;
 
 public class Produto
@@ -6,6 +8,12 @@ public class Produto
     // atributos
     public int Id {get; set;} //Get para obter um id = identificador
                             // Set para definir um novo valor, atualizar e 
+    [Required(ErrorMessage = "Informe um nome")]
+    [StringLength(
+        100,
+        MinimumLength =3,
+        ErrorMessage = "O nome deve possuir entre 3 e 100 caracteres"
+    )]
     public string Nome {get; set;}
     public decimal Preco {get; set;}
     public int Estoque {get; set;}
